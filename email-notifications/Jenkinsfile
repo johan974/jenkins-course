@@ -1,11 +1,11 @@
 node {
 
   // config 
-  def to = emailextrecipients(['johangeocache@gmail.com'
+  //def to = emailextrecipients(['johangeocache@gmail.com'
           //[$class: 'CulpritsRecipientProvider'],
           //[$class: 'DevelopersRecipientProvider'],
           //[$class: 'RequesterRecipientProvider']
-  ])
+  //])
 
   // job
   try {
@@ -27,7 +27,7 @@ node {
     if(to != null && !to.isEmpty()) {
       emailext(body: content, mimeType: 'text/html',
          replyTo: '$DEFAULT_REPLYTO', subject: subject,
-         to: to, attachLog: true )
+         to: 'johangeocache@gmail.com', attachLog: true )
     }
 
     // mark current build as a failure and throw the error
