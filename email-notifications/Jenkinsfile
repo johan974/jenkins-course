@@ -25,9 +25,10 @@ node {
 
     // send email
     if(to != null && !to.isEmpty()) {
-      emailext(body: content, mimeType: 'text/html',
-         replyTo: '$DEFAULT_REPLYTO', subject: subject,
-         to: 'johangeocache@gmail.com', attachLog: true )
+      //emailext(body: content, mimeType: 'text/html',
+      //   replyTo: '$DEFAULT_REPLYTO', subject: subject,
+      //   to: 'johangeocache@gmail.com', attachLog: true )
+      emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
     }
 
     // mark current build as a failure and throw the error
