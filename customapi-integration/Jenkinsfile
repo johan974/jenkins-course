@@ -16,5 +16,6 @@ def repo = "johan974/jenkins-course"
 //}
 
 def pr = httpRequest url: "http://ip.jsontest.com/"
-println( jsonParse(pr.content))
+// println( jsonParse(pr.content))
+println( pr.content)
 
