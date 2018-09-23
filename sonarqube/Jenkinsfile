@@ -1,5 +1,7 @@
 node {
-    def myGradleContainer = docker.image('gradle:jdk8-alpine')
+    // Dit werkt niet ... want jdk8-alpine heeft onvoldoende libraries aan boord voor de sonar scanner
+    // def myGradleContainer = docker.image('gradle:jdk8-alpine')
+    def myGradleContainer = docker.image('gradle:jdk8')
     myGradleContainer.pull()
 
     stage('prep') {
