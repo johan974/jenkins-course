@@ -3,7 +3,7 @@ services:
   jenkins:
     image: docker-jenkins-maven-npm-oc:latest
     ports:
-      - "8080:8080"
+      - "8888:8080"
       - "50000:50000"
     networks:
       - jenkins
