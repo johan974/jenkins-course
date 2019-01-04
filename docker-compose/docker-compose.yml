@@ -4,7 +4,6 @@ services:
     image: docker-jenkins-maven-npm-oc:latest
     ports:
       - "8888:8080"
-      - "50000:50000"
     volumes:
       - k:/data/var/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
