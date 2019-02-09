@@ -4,8 +4,6 @@ services:
     image: docker-jenkins-maven-npm-oc:latest
     ports:
       - "8888:8080"
-    networks:
-      - jenkins
     volumes:
       - //k/data/var/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
@@ -16,25 +14,7 @@ services:
       - MYSQL_DATABASE=geosoldatabase
       - MYSQL_USER=johan
       - MYSQL_PASSWORD=bladibladibla
-    networks:
-      - jenkins
     volumes:
       - //k/data/var/mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
-  sonarqube:
-    image: sonarqube:lts
-    ports:
-      - "9000:9000"
-      - "9092:9092"
-    networks:
-      - jenkins
-    environment:
-      SONARQUBE_JDBC_USERNAME: johan
-      SONARQUBE_JDBC_PASSWORD: bladibladibla
-      SONARQUBE_JDBC_URL: "jdbc:mysql://geosolschmea:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true"
-    depends_on:
-      - geosolschmea
-
-networks:
-  jenkins:
