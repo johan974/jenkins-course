@@ -1,0 +1,24 @@
+version: '3'
+services:
+  jenkins:
+    image: docker-jenkins-maven-npm-oc:latest
+    ports:
+      - "8888:8080"
+    volumes:
+      - //k/data/var/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+  geosolschmea:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=geosoldatabase
+      - MYSQL_USER=johan
+      - MYSQL_PASSWORD=bladibladibla
+    volumes:
+      - //k/data/var/mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  slackbotsimple:
+    image: solvedshared/slackbotsimple:latest
+    environment:
+      - slackBotToken=xoxb-441931181174-457951683089-4P3xBBpXV2o6Ij7OpDNBzhY9
